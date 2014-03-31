@@ -16,10 +16,10 @@
    <!-- Full Screen -->
    <preference name="fullscreen" value="true" />
 
-   <name>Config.xml</name>
+   <name>Scrapbook App</name>
 
    <description>
-      An example for phonegap build docs.
+     My scrapbook app
    </description>
 
    <author href="http://mhowey.com" email="meh2@pct.edu">
