@@ -1,0 +1,198 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Making Memories Scrapbook App</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/mytheme.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<style>
+.header {
+	text-align: center;
+	padding: 10px;
+	font-size: 16px;
+	
+}
+
+h1 {
+	font-size: 25px;
+}
+	
+
+p {
+	padding-bottom: 15px;
+}
+
+.mainimg {
+text-align: center;
+}
+
+.center-wrapper{
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+.content{
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.link {
+font-size: 13px;
+}
+
+.footer {
+font-size: 11px;
+}
+</style>
+
+ <script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value 
+
+    // Wait for Cordova to connect with the device
+    //
+    document.addEventListener("deviceready",onDeviceReady,false);
+
+    // Cordova is ready to be used!
+    //
+    function onDeviceReady() {
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+    }
+
+    // Called when a photo is successfully retrieved
+    //
+    function onPhotoDataSuccess(imageData) {
+      // Uncomment to view the base64 encoded image data
+      // console.log(imageData);
+
+      // Get image handle
+      //
+      var smallImage = document.getElementById('smallImage');
+
+      // Unhide image elements
+      //
+      smallImage.style.display = 'block';
+
+      // Show the captured photo
+      // The inline CSS rules are used to resize the image
+      //
+      smallImage.src = "data:image/jpeg;base64," + imageData;
+    }
+
+    // Called when a photo is successfully retrieved
+    //
+    function onPhotoURISuccess(imageURI) {
+      // Uncomment to view the image file URI 
+      // console.log(imageURI);
+
+      // Get image handle
+      //
+      var largeImage = document.getElementById('largeImage');
+
+      // Unhide image elements
+      //
+      largeImage.style.display = 'block';
+
+      // Show the captured photo
+      // The inline CSS rules are used to resize the image
+      //
+      largeImage.src = imageURI;
+    }
+
+    // A button will call this function
+    //
+    function capturePhoto() {
+      // Take picture using device camera and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        destinationType: destinationType.DATA_URL });
+    }
+
+    // A button will call this function
+    //
+    function capturePhotoEdit() {
+      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
+    }
+
+    // A button will call this function
+    //
+    function getPhoto(source) {
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+    }
+
+    // Called if something bad happens.
+    // 
+    function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+
+    </script>
+</head> 
+<body> 
+
+<div data-role="page" id="page1">
+	<div data-role="header" class="header">
+    	<div class="center-wrapper">
+    	<img src="images/scrapbook.jpeg">
+		<h1>Making Memories</h1>
+	</div>
+	</div>
+	<div data-role="content">	   
+		<ul data-role="listview">
+			<li><a class="link" href="#page2" data-transition="pop">I can't believe she just said that..</a></li>
+            <li><a class="link" href="#page3" data-transition="pop">Photographic Memories</a></li>
+		</ul>		
+	</div>
+	<div data-role="footer" class="footer">
+		<h4>&copy; 2014 | mHowey | All rights reserved.</h4>
+	</div>
+</div>
+<div data-role="page" id="page2">
+	<div data-role="header">
+		<h1>I can't believe she just said that..</h1>
+	</div>
+	<div data-role="content">
+	<label for="basic">Text Input:</label>
+<input type="text" name="name" id="basic" value="">
+	</div>
+	  <ul data-role="listview" data-icon="back">
+			<li><a href="#page1" data-role="button" data-icon="back" data-iconpos="left">Back</a></li>
+		</ul>
+	<div data-role="footer" class="footer">
+		<h4>&copy; 2014 | mHowey | All rights reserved</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>Photographic Memories</h1>
+	</div>
+	<div data-role="content">
+	      <button onclick="capturePhoto();">Capture Photo</button> <br>
+    <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    <img style="display:none;" id="largeImage" src="" />
+	  </div>
+	  <ul data-role="listview" data-icon="back">
+			<li><a href="#page1" data-role="button" data-icon="back" data-iconpos="left">Back</a></li>
+		</ul>	
+	
+	<div data-role="footer" class="footer">
+		<h4>&copy; 2014 | mHowey | All rights reserved</h4>
+	</div>
+</div>
+</body>
+</html>
