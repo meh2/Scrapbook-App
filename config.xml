@@ -27,14 +27,14 @@
    </author>
 
    <!-- Splash Screen -->
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="320" height="480" />
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="640" height="960" />
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="640" height="1136" />
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="1024" height="748" />
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="768" height="1004" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="320" height="480" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="640" height="960" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="640" height="1136" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="1024" height="748" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="768" height="1004" />
    <!-- retina iPad support: PhoneGap 2.5.0+ only -->
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="2048" height="1496" />
-   <gap:splash src="_img/ipad.png" gap:platform="ios" width="1536" height="2008" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="2048" height="1496" />
+   <gap:splash src="images/splash.png" gap:platform="ios" width="1536" height="2008" />
 
 	<!--Camera Plugin-->
 	<gap:plugin name="org.apache.cordova.camera" version="0.2.4" />
