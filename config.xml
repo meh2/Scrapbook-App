@@ -35,6 +35,13 @@
    <!-- retina iPad support: PhoneGap 2.5.0+ only -->
    <gap:splash src="images/splash.png" gap:platform="ios" width="2048" height="1496" />
    <gap:splash src="images/splash.png" gap:platform="ios" width="1536" height="2008" />
+   
+   <!--icon images-->
+   <icon src="images/icon.png"          gap:platform="ios" width="57"  height="57"  />
+    <icon src="images/icon.png"       gap:platform="ios" width="72"  height="72"  />
+    <icon src="images/icon.png"    gap:platform="ios" width="114" height="114" />
+    <!-- retina iPad -->
+    <icon src="images/icon.png" gap:platform="ios" width="144" height="144" />
 
 	<!--Camera Plugin-->
 	<gap:plugin name="org.apache.cordova.camera" version="0.2.4" />
