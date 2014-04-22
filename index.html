@@ -88,17 +88,6 @@ button.camera-control:hover {
     setTimeout(function() {
      navigator.splashscreen.hide();
 	}, 1000);
-	
-	function capturePhoto(){
-    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
-}
-
-function uploadPhoto(data){
-// this is where you would send the image file to server
- 
-//output image to screen
-    cameraPic.src = "data:image/jpeg;base64," + data;
-}
     </script>
 </head> 
 <body> 
@@ -155,5 +144,18 @@ function uploadPhoto(data){
 		<h4>&copy; 2014 | mHowey | All rights reserved</h4>
 	</div>
 </div>
+
+<script>
+	function capturePhoto(){
+    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
+}
+
+function uploadPhoto(data){
+// this is where you would send the image file to server
+ 
+//output image to screen
+    cameraPic.src = "data:image/jpeg;base64," + data;
+}
+</script>
 </body>
 </html>
