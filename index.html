@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Making Memories Scrapbook App</title>
+<title>Memory Catcher</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="themes/mytheme.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -82,14 +82,13 @@ button.camera-control:hover {
 
 </style>
 
- <script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
-    <script type="text/javascript" charset="utf-8">
-    
+<script>
+    function onDeviceReady(); {
     setTimeout(function() {
      navigator.splashscreen.hide();
 	}, 1000);
 	
-	function capturePhoto(){
+	/*function capturePhoto(){
     navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
 }
 
@@ -106,7 +105,7 @@ function uploadPhoto(data){
 	);
 
 	// upload has failed Fail
-	/* 
+	
 	if (failedToUpload){
 	navigator.notification.alert(
 		'Your Photo has failed to upload',
@@ -167,6 +166,24 @@ function okay(){
  
     <div style="text-align:center;margin:20px;">
         <img id="cameraPic" src="" style="width:auto;height:120px;"></img>
+        
+    <script>
+    	function capturePhoto(){
+    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
+}
+
+function uploadPhoto(data){
+// this is where you would send the image file to server
+
+	cameraPic.src = "data:image/jpeg;base64," + data;
+	// Successful upload to the server
+	navigator.notification.alert(
+		'Your Photo has been uploaded',  // message
+		okay,                           // callback
+	    'Photo Uploaded',              // title
+	    'OK'                          // buttonName
+	);
+	</script>
     </div>
 </div>
 	  <ul data-role="listview" data-icon="back">
