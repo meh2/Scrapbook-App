@@ -16,10 +16,10 @@
    <!-- Full Screen -->
    <preference name="fullscreen" value="true" />
 
-   <name>Scrapbook App</name>
+   <name>Memory Catcher</name>
 
    <description>
-     My scrapbook app
+     An app for collecting and storing the memories of parenthood.
    </description>
 
    <author href="http://mhowey.com" email="meh2@pct.edu">
@@ -36,10 +36,15 @@
    <gap:splash src="images/splash.png" gap:platform="ios" width="2048" height="1496" />
    <gap:splash src="images/splash.png" gap:platform="ios" width="1536" height="2008" />
    
+   <preference name="auto-hide-splash-screen" value="false" />
+	<preference name="AutoHideSplashScreen" value="false" />
+	<preference name="FadeSplashScreen" value="true" />
+	<preference name="fade-splash-screen-duration" value="5" />
+   
    <!--icon images-->
-   <icon src="images/icon.png"          gap:platform="ios" width="57"  height="57"  />
-    <icon src="images/icon.png"       gap:platform="ios" width="72"  height="72"  />
-    <icon src="images/icon.png"    gap:platform="ios" width="114" height="114" />
+   <icon src="images/icon.png" gap:platform="ios" width="57"  height="57"  />
+    <icon src="images/icon.png" gap:platform="ios" width="72"  height="72"  />
+    <icon src="images/icon.png" gap:platform="ios" width="114" height="114" />
     <!-- retina iPad -->
     <icon src="images/icon.png" gap:platform="ios" width="144" height="144" />
 
